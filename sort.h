@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 20:53:19 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 01:50:16 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 12:00:06 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "chunk.h"
 # include "op.h"
 
+int	sort(struct s_op_info *info, struct s_chunk *chunk);
 int sort_one(struct s_op_info *info, struct s_chunk *c);
 int sort_two(struct s_op_info *info, struct s_chunk *c);
 int sort_three(struct s_op_info *info, struct s_chunk *c);

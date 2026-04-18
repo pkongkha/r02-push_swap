@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circ_stack_init.c                                  :+:      :+:    :+:   */
+/*   op_transaction_print.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 22:47:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 11:33:14 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/18 11:48:32 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/18 11:52:03 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circ_stack.h"
-#include <errno.h>
-#include <stdlib.h>
+#include "op.h"
 
-int circ_stack_init(t_circ_stack *cs, size_t size) {
-	cs->begin = malloc(sizeof(*cs->begin) * size);
-	if (!cs->begin)
-		return (-ENOMEM);
-	cs->last = cs->begin + size - 1;
-	cs->top = NULL;
-	cs->bottom = NULL;
-	cs->size = 0;
-	return (0);
+#include <libft.h>
+
+void	op_transaction_print(struct s_op_transaction_info *trinfo)
+{
+	trinfo->curr = trinfo->begin;
+	while (trinfo->curr)
+	{
+		ft_printf("%s\n", op_obtain_enum_string(trinfo->curr->op));
+		trinfo->curr = trinfo->curr->next;
+	};
 }

@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circ_stack_init.c                                  :+:      :+:    :+:   */
+/*   step.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 22:47:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 11:33:14 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/18 12:07:52 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/18 12:13:01 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circ_stack.h"
-#include <errno.h>
-#include <stdlib.h>
+#ifndef STEP_H
+# define STEP_H
+# include "op.h"
+# include "stddef.h"
 
-int circ_stack_init(t_circ_stack *cs, size_t size) {
-	cs->begin = malloc(sizeof(*cs->begin) * size);
-	if (!cs->begin)
-		return (-ENOMEM);
-	cs->last = cs->begin + size - 1;
-	cs->top = NULL;
-	cs->bottom = NULL;
-	cs->size = 0;
-	return (0);
-}
+int	step_check_duplicate(struct s_circ_stack *cs);
+void	step_cleanup(struct s_op_info *info);
+int	step_parseargs(struct s_op_info *info, char **strsnums, size_t nstr);
+int	step_sort(struct s_op_info *info);
+#endif

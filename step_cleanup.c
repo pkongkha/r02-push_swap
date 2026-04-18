@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circ_stack_init.c                                  :+:      :+:    :+:   */
+/*   step_cleanup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 22:47:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 11:33:14 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/18 11:55:40 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/18 11:55:58 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "circ_stack.h"
-#include <errno.h>
-#include <stdlib.h>
+#include "op.h"
 
-int circ_stack_init(t_circ_stack *cs, size_t size) {
-	cs->begin = malloc(sizeof(*cs->begin) * size);
-	if (!cs->begin)
-		return (-ENOMEM);
-	cs->last = cs->begin + size - 1;
-	cs->top = NULL;
-	cs->bottom = NULL;
-	cs->size = 0;
-	return (0);
+void	step_cleanup(struct s_op_info *info)
+{
+	if (info->a.begin)
+		circ_stack_destroy(&info->a);
+	if (info->b.begin)
+		circ_stack_destroy(&info->b);
+	if (info->trinfo.begin)
+		op_transaction_destroy(&info->trinfo);
 }

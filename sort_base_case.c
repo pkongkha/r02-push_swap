@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 20:52:22 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 03:19:43 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 12:17:08 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "op.h"
 
 #include <errno.h>
-
-void circ_stack_print_dual(t_circ_stack *a, t_circ_stack *b);
 
 // Impl: Everything should be thrown to A TOP in sorted manner
 //      Which means, the largest one should be sent first,

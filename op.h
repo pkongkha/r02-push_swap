@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 14:44:57 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/14 17:33:41 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 11:52:40 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int op_p(t_circ_stack *dst, t_circ_stack *src);
 int	op_r(t_circ_stack *cs);
 int	op_rr(t_circ_stack *cs);
 int	op_s(t_circ_stack *cs);
+void	op_transaction_destroy(struct s_op_transaction_info *trinfo);
 int op_transaction_record(struct s_op_transaction_info *trinfo, enum e_op op);
+void	op_transaction_print(struct s_op_transaction_info *trinfo);
+const char *op_obtain_enum_string(enum e_op op);
 
 #endif
