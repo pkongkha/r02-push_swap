@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 01:45:39 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/14 22:32:45 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 20:09:29 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	op_rr(t_circ_stack *cs)
 
 	if (cs->size < 1)
 		return (-EINVAL);
+	if (cs->size == 1)
+		return (-EALREADY);
 	if (cs->size > 1)
 	{
 		num = *cs->bottom;

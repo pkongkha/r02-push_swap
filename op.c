@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 04:07:55 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:54:56 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 01:23:24 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <errno.h>
 
-int	op(struct s_op_info *info, enum e_op op)
+static int	do_op(struct s_op_info *info, enum e_op op)
 {
 	int	op_status;
 
@@ -38,7 +38,16 @@ int	op(struct s_op_info *info, enum e_op op)
 		return (-ENOSYS);
 	else
 		return (-EINVAL);
-	if (op_status == 0)
+	return (op_status);
+}
+
+int	op(struct s_op_info *info, enum e_op op)
+{
+	const int	op_status = do_op(info, op);
+
+	if (op_status == -EALREADY)
+		return (0);
+	else if (op_status == 0)
 		return (op_transaction_record(&info->trinfo, op));
 	return (op_status);
 }

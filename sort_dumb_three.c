@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step.h                                             :+:      :+:    :+:   */
+/*   sort_dumb_three.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/18 12:07:52 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/19 01:22:47 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/19 01:08:03 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/19 01:11:23 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEP_H
-# define STEP_H
-# include "op.h"
-# include "stddef.h"
+#include "op.h"
+#include "step.h"
 
-int		step_check_sorted(struct s_op_info *info);
-int		step_check_duplicate(struct s_circ_stack *cs);
-void	step_cleanup(struct s_op_info *info);
-int		step_parseargs(struct s_op_info *info, char **strsnums, size_t nstr);
-int		step_sort(struct s_op_info *info);
-#endif
+int	sort_dumb_three(struct s_op_info *info)
+{
+	int	status;
+
+	while (!step_check_sorted(info))
+	{
+		if (circ_stack_seek(&info->a, 0) > circ_stack_seek(&info->a, 1))
+			status = op(info, SA);
+		else
+			status = op(info, RRA);
+		if (status)
+			return (status);
+	}
+	return (0);
+}

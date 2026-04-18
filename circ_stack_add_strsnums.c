@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:08:18 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:56:51 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 00:58:29 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ static size_t	circ_stack_add_strnums(t_circ_stack *cs, char *strnums)
 			break ;
 		circ_stack_push_bottom(cs, ft_atoi(strnums));
 		++num_count;
-		while (ft_isdigit(*strnums) || *strnums == '+' || *strnums == '-')
+		if (*strnums == '+' || *strnums == '-')
+			++strnums;
+		while (ft_isdigit(*strnums))
 			++strnums;
 	}
 	return (num_count);

@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 14:44:57 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:38:03 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 01:21:57 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int			op_transaction_record(struct s_op_transaction_info *trinfo,
 				enum e_op op);
 void		op_transaction_print(struct s_op_transaction_info *trinfo);
 const char	*op_obtain_enum_string(enum e_op op);
+int			op_transaction_opti(struct s_op_transaction_info *trinfo);
 
 #endif

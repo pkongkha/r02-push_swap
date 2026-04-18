@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:32:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 14:00:19 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 21:29:59 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	chunk_split(struct s_op_info *info, struct s_chunk_split_result *res,
 
 	*res = (struct s_chunk_split_result){.move_max = 0, .move_mid = 0,
 		.move_min = 0};
-	chunk_split_policy_init(&res->pol, &chunk->nbrrange, &chunk->loc);
+	chunk_split_policy_init(&res->pol, chunk);
 	while (chunk->size != 0)
 	{
 		nbr = chunk_split_get_next_memb(&info->a, &info->b, &chunk->loc);

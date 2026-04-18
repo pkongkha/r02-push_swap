@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step.h                                             :+:      :+:    :+:   */
+/*   step_check_sorted.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/18 12:07:52 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/19 01:22:47 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/18 21:42:00 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/19 01:20:21 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STEP_H
-# define STEP_H
-# include "op.h"
-# include "stddef.h"
+#include "circ_stack.h"
+#include "op.h"
 
-int		step_check_sorted(struct s_op_info *info);
-int		step_check_duplicate(struct s_circ_stack *cs);
-void	step_cleanup(struct s_op_info *info);
-int		step_parseargs(struct s_op_info *info, char **strsnums, size_t nstr);
-int		step_sort(struct s_op_info *info);
-#endif
+#include <limits.h>
+#include <stddef.h>
+
+int	step_check_sorted(struct s_op_info *info)
+{
+	size_t	i;
+	int		num;
+
+	i = 0;
+	num = INT_MIN;
+	while (i < info->a.size)
+	{
+		if (num > circ_stack_seek(&info->a, i))
+			return (0);
+		num = circ_stack_seek(&info->a, i);
+		++i;
+	}
+	return (1);
+}

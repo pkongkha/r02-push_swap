@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:31:25 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:59:24 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 21:40:13 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ static void	chunk_split_policy_init_b(struct s_chunk_split_policy *pol,
 }
 
 void	chunk_split_policy_init(struct s_chunk_split_policy *pol,
-	struct s_nbr_range *range, struct s_stack_loc *srcloc)
+	struct s_chunk *ch)
 {
-	const int	diff = range->max - range->min;
+	const int	diff = ch->nbrrange.max - ch->nbrrange.min;
 
-	if (srcloc->id == A)
-		chunk_split_policy_init_a(pol, srcloc);
-	else if (srcloc->id == B)
-		chunk_split_policy_init_b(pol, srcloc);
-	pol->pivot_min = range->min + diff / 3;
-	pol->pivot_mid = range->min + diff / 3 * 2;
+	if (ch->loc.id == A)
+		chunk_split_policy_init_a(pol, &ch->loc);
+	else if (ch->loc.id == B)
+		chunk_split_policy_init_b(pol, &ch->loc);
+	pol->pivot_min = ch->nbrrange.min + diff / 2.71 / 2;
+	pol->pivot_mid = ch->nbrrange.min + diff / 2;
 }

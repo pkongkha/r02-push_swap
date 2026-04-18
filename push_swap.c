@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:50:03 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:51:07 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 01:33:16 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static int	print_errmsg(void)
 {
-	write(STDERR_FILENO, "Error", 5);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	return (1);
 }
 
@@ -35,7 +35,11 @@ int	main(int argc, char **argv)
 		return (print_errmsg(), 1);
 	if (step_check_duplicate(&info.a))
 		return (step_cleanup(&info), print_errmsg(), 1);
+	if (step_check_sorted(&info))
+		return (step_cleanup(&info), print_errmsg(), 1);
 	if (step_sort(&info))
+		return (step_cleanup(&info), print_errmsg(), 1);
+	if (op_transaction_opti(&info.trinfo))
 		return (step_cleanup(&info), print_errmsg(), 1);
 	op_transaction_print(&info.trinfo);
 	step_cleanup(&info);

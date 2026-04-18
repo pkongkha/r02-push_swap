@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:29:23 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:40:49 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 01:23:56 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	chunk_split(struct s_op_info *info, struct s_chunk_split_result *res,
 int		chunk_split_get_next_memb(struct s_circ_stack *a,
 			struct s_circ_stack *b, struct s_stack_loc *loc);
 void	chunk_split_policy_init(struct s_chunk_split_policy *pol,
-			struct s_nbr_range *range, struct s_stack_loc *srcloc);
+			struct s_chunk *ch);
 #endif
