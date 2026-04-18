@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:50:03 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/19 01:33:16 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/19 01:41:21 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static int	print_errmsg(void)
 {
-	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putendl_fd("Error", STDERR_FILENO);
 	return (1);
 }
 
