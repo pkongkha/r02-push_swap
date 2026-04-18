@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 16:52:35 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 01:51:13 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:46:42 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <errno.h>
 
-int sort_three_flow_b_bottom(struct s_op_info *info)
+int	sort_three_flow_b_bottom(struct s_op_info *info)
 {
-	int scheme = sort_three_flow_detect_scheme_bottom(&info->b);
+	const int	scheme = sort_three_flow_detect_scheme_bottom(&info->b);
 
 	if (scheme == 123)
 		return (op_many(info, 6, (enum e_op[]){RRB, PA, RRB, PA, RRB, PA}));
@@ -32,5 +32,5 @@ int sort_three_flow_b_bottom(struct s_op_info *info)
 	else if (scheme == 321)
 		return (op_many(info, 6, (enum e_op[]){RRB, RRB, RRB, PA, PA, PA}));
 	else
-	 	return (-EINVAL);
+		return (-EINVAL);
 }

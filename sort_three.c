@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 21:01:52 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/14 17:00:19 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:48:04 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 #include <errno.h>
 
-int sort_three(struct s_op_info *info, struct s_chunk *c)
+int	sort_three(struct s_op_info *info, struct s_chunk *c)
 {
-	int (*func_sort)(struct s_op_info *info);
+	int	(*func_sort)(struct s_op_info *info);
 
 	if (c->size != 3)
 		return (-EINVAL);

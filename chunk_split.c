@@ -6,18 +6,20 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:32:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 00:08:11 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 14:00:19 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "chunk.h"
 #include "op.h"
 
-void	chunk_split(struct s_op_info *info, struct s_chunk_split_result *res, struct s_chunk *chunk)
+void	chunk_split(struct s_op_info *info, struct s_chunk_split_result *res,
+	struct s_chunk *chunk)
 {
-	int nbr;
+	int	nbr;
 
-	*res = (struct s_chunk_split_result){.move_max = 0, .move_mid = 0, .move_min = 0};
+	*res = (struct s_chunk_split_result){.move_max = 0, .move_mid = 0,
+		.move_min = 0};
 	chunk_split_policy_init(&res->pol, &chunk->nbrrange, &chunk->loc);
 	while (chunk->size != 0)
 	{

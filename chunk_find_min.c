@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 02:42:26 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 02:49:16 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 14:00:33 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 #include <limits.h>
 
-int chunk_find_min(struct s_op_info *info, struct s_chunk *chunk)
+int	chunk_find_min(struct s_op_info *info, struct s_chunk *chunk)
 {
-	size_t i;
+	size_t	i;
 	int		minnbr;
 
 	i = 0;

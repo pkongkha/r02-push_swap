@@ -6,13 +6,13 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 01:47:39 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 02:14:51 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:44:45 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "circ_stack.h"
 
-int sort_three_flow_detect_scheme_top(struct s_circ_stack *cs)
+int	sort_three_flow_detect_scheme_top(struct s_circ_stack *cs)
 {
 	const int	a = circ_stack_seek(cs, 0);
 	const int	b = circ_stack_seek(cs, 1);

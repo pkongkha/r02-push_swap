@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:08:18 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 03:57:29 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:56:51 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	circ_stack_add_strnums(t_circ_stack *cs, char *strnums)
 		while (ft_isspace(*strnums))
 			++strnums;
 		if (!ft_isdigit(*strnums) && *strnums != '+' && *strnums != '-')
-			break;
+			break ;
 		circ_stack_push_bottom(cs, ft_atoi(strnums));
 		++num_count;
 		while (ft_isdigit(*strnums) || *strnums == '+' || *strnums == '-')

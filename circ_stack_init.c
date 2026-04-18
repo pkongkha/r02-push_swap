@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 22:47:33 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 11:33:14 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:56:32 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <errno.h>
 #include <stdlib.h>
 
-int circ_stack_init(t_circ_stack *cs, size_t size) {
+int	circ_stack_init(t_circ_stack *cs, size_t size)
+{
 	cs->begin = malloc(sizeof(*cs->begin) * size);
 	if (!cs->begin)
 		return (-ENOMEM);

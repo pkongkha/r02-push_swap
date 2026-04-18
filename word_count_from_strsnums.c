@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:21:29 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/03/18 15:24:17 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:41:25 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,3 @@ size_t	word_count_from_strsnums(char **strs, size_t nstr)
 	}
 	return (wc);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 20:52:22 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 12:17:08 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:49:04 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 // Impl: Everything should be thrown to A TOP in sorted manner
 //      Which means, the largest one should be sent first,
 //      and the least should be sent last
-int sort_base_case(struct s_op_info *info, struct s_chunk *c)
+int	sort_base_case(struct s_op_info *info, struct s_chunk *c)
 {
-	int (*sort_func)(struct s_op_info *info, struct s_chunk *c);
+	int	(*sort_func)(struct s_op_info *info, struct s_chunk *c);
 
 	if (c->size == 1)
 		sort_func = &sort_one;
@@ -31,5 +31,5 @@ int sort_base_case(struct s_op_info *info, struct s_chunk *c)
 		sort_func = &sort_three;
 	else
 		return (-EINVAL);
-	return(sort_func(info, c));
+	return (sort_func(info, c));
 }

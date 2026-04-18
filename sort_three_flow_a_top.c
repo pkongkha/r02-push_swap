@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 16:57:21 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 02:13:12 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:47:02 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <errno.h>
 
-int sort_three_flow_a_top(struct s_op_info *info)
+int	sort_three_flow_a_top(struct s_op_info *info)
 {
-	int scheme = sort_three_flow_detect_scheme_top(&info->a);
+	const int	scheme = sort_three_flow_detect_scheme_top(&info->a);
 
 	if (scheme == 123)
 		return (0);
@@ -32,5 +32,5 @@ int sort_three_flow_a_top(struct s_op_info *info)
 	else if (scheme == 321)
 		return (op_many(info, 5, (enum e_op[]){SA, RA, SA, RRA, SA}));
 	else
-	 	return (-EINVAL);
+		return (-EINVAL);
 }

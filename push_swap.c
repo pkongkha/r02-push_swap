@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:50:03 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 12:16:18 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:51:07 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stddef.h>
 #include <unistd.h>
 
-static int	print_errmsg()
+static int	print_errmsg(void)
 {
 	write(STDERR_FILENO, "Error", 5);
 	return (1);

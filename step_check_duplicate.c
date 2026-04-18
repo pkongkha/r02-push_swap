@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 11:55:02 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 11:55:17 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:42:07 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	step_check_duplicate(struct s_circ_stack *cs)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < cs->size)

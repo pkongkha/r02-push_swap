@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:41 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/15 03:25:54 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:54:19 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 #include <errno.h>
 
-static int	op_move_flow_src_a_top(struct s_op_info *info, struct s_stack_loc *dest)
+static int	op_move_flow_src_a_top(struct s_op_info *info,
+	struct s_stack_loc *dest)
 {
 	if (dest->id == A && dest->pos == BOTTOM)
 		return (op(info, RA));
@@ -28,7 +29,8 @@ static int	op_move_flow_src_a_top(struct s_op_info *info, struct s_stack_loc *de
 	return (0);
 }
 
-static int	op_move_flow_src_a_bottom(struct s_op_info *info, struct s_stack_loc *dest)
+static int	op_move_flow_src_a_bottom(struct s_op_info *info,
+	struct s_stack_loc *dest)
 {
 	if (dest->id == A && dest->pos == TOP)
 		return (op(info, RRA));
@@ -39,7 +41,8 @@ static int	op_move_flow_src_a_bottom(struct s_op_info *info, struct s_stack_loc 
 	return (0);
 }
 
-static int	op_move_flow_src_b_top(struct s_op_info *info, struct s_stack_loc *dest)
+static int	op_move_flow_src_b_top(struct s_op_info *info,
+	struct s_stack_loc *dest)
 {
 	if (dest->id == A && dest->pos == TOP)
 		return (op(info, PA));
@@ -50,7 +53,8 @@ static int	op_move_flow_src_b_top(struct s_op_info *info, struct s_stack_loc *de
 	return (0);
 }
 
-static int	op_move_flow_src_b_bottom(struct s_op_info *info, struct s_stack_loc *dest)
+static int	op_move_flow_src_b_bottom(struct s_op_info *info,
+	struct s_stack_loc *dest)
 {
 	if (dest->id == A && dest->pos == TOP)
 		return (op_many(info, 2, (enum e_op[]){RRB, PA}));
@@ -61,9 +65,10 @@ static int	op_move_flow_src_b_bottom(struct s_op_info *info, struct s_stack_loc 
 	return (0);
 }
 
-int	op_move(struct s_op_info *info, struct s_stack_loc *dest, struct s_stack_loc *src)
+int	op_move(struct s_op_info *info, struct s_stack_loc *dest,
+	struct s_stack_loc *src)
 {
-	int (*func)(struct s_op_info *info, struct s_stack_loc *dest);
+	int	(*func)(struct s_op_info *info, struct s_stack_loc *dest);
 
 	if (ft_memcmp(dest, src, sizeof(*dest)) == 0)
 		return (0);

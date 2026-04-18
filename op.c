@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 04:07:55 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/14 17:36:58 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/18 13:54:56 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 #include <errno.h>
 
-int op(struct s_op_info *info, enum e_op op)
+int	op(struct s_op_info *info, enum e_op op)
 {
-	int op_status;
+	int	op_status;
 
 	if (op == SA)
 		op_status = op_s(&info->a);
