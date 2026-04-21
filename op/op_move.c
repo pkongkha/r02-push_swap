@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:34:41 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 13:54:19 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:43:00 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	op_move_flow_src_b_top(struct s_op_info *info,
 	if (dest->id == A && dest->pos == TOP)
 		return (op(info, PA));
 	if (dest->id == A && dest->pos == BOTTOM)
-		return (op_many(info, 3, (enum e_op[]){PA, RA}));
+		return (op_many(info, 2, (enum e_op[]){PA, RA}));
 	if (dest->id == B && dest->pos == BOTTOM)
 		return (op(info, RB));
 	return (0);

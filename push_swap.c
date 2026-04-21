@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:50:03 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/21 15:28:13 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/21 16:08:42 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	cleanup(struct s_op_info *info)
 
 int	parseargs(struct s_op_info *info, char **strsnums, size_t nstr)
 {
-	const size_t	num_total = word_count_from_strsnums(strsnums, nstr);
+	const int	num_total = word_count_from_strsnums(strsnums, nstr);
 
 	if (num_total == 0)
 		return (cleanup(info), -EINVAL);
@@ -71,14 +71,14 @@ int	main(int argc, char **argv)
 	struct s_op_info	info;
 
 	if (argc < 2)
-		return (print_errmsg(), 1);
+		return (0);
 	info = (struct s_op_info){0};
 	if (parseargs(&info, argv + 1, argc - 1))
 		return (print_errmsg(), 1);
 	if (validate_duplicate(&info.a))
 		return (cleanup(&info), print_errmsg(), 1);
 	if (validate_sorted(&info))
-		return (cleanup(&info), print_errmsg(), 1);
+		return (cleanup(&info), 0);
 	if (sort_optimized(&info))
 		return (cleanup(&info), print_errmsg(), 1);
 	if (op_transaction_opti(&info.trinfo))
