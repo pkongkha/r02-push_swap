@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step_check_sorted.c                                :+:      :+:    :+:   */
+/*   validate.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/18 21:42:00 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/19 01:20:21 by pkongkha         ###   ########.fr       */
+/*   Created: 2026/04/21 15:22:24 by pkongkha          #+#    #+#             */
+/*   Updated: 2026/04/21 15:22:55 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circ_stack.h"
-#include "op.h"
+#ifndef VALIDATE_H
+# define VALIDATE_H
+# include "op.h"
 
-#include <limits.h>
-#include <stddef.h>
+int		validate_sorted(struct s_op_info *info);
+int		validate_duplicate(struct s_circ_stack *cs);
 
-int	step_check_sorted(struct s_op_info *info)
-{
-	size_t	i;
-	int		num;
-
-	i = 0;
-	num = INT_MIN;
-	while (i < info->a.size)
-	{
-		if (num > circ_stack_seek(&info->a, i))
-			return (0);
-		num = circ_stack_seek(&info->a, i);
-		++i;
-	}
-	return (1);
-}
+#endif

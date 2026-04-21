@@ -1,12 +1,13 @@
-SRCS := $(wildcard *.c)
+SRCS := $(wildcard *.c $(addsuffix /*.c,chunk circ_stack op sort word_count validate))
 OBJDIR ?= .obj
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
+OBJDIRS := $(sort $(dir $(OBJS)))
 DEPS := $(OBJS:.o=.d)
 
 ORIG_CFLAGS := $(CFLAGS)
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD -MP
-CFLAGS += -Ilibft
+CFLAGS += -Ilibft -Iinclude
 LDFLAGS += -Llibft -lft
 unexport CFLAGS LDFLAGS
 
@@ -27,9 +28,9 @@ re: fclean all
 libft/libft.a:
 	CFLAGS='$(ORIG_CFLAGS)' $(MAKE) -C libft all
 
-$(OBJDIR):
-	@mkdir -p $@
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
+$(OBJDIRS):
+	mkdir -p $@
+$(OBJDIR)/%.o: %.c | $(OBJDIRS)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(NAME): $(OBJS) | libft/libft.a
