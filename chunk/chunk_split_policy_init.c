@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:31:25 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/18 21:40:13 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/21 17:55:11 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	chunk_split_policy_init_b(struct s_chunk_split_policy *pol,
 void	chunk_split_policy_init(struct s_chunk_split_policy *pol,
 	struct s_chunk *ch)
 {
-	const int	diff = ch->nbrrange.max - ch->nbrrange.min;
+	const double	diff = (double)ch->nbrrange.max - (double)ch->nbrrange.min;
 
 	if (ch->loc.id == A)
 		chunk_split_policy_init_a(pol, &ch->loc);
