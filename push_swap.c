@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:50:03 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/21 16:08:42 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/21 22:33:19 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	print_errmsg(void)
 	return (1);
 }
 
-void	cleanup(struct s_op_info *info)
+static void	cleanup(struct s_op_info *info)
 {
 	if (info->a.begin)
 		circ_stack_destroy(&info->a);
@@ -37,7 +37,7 @@ void	cleanup(struct s_op_info *info)
 		op_transaction_destroy(&info->trinfo);
 }
 
-int	parseargs(struct s_op_info *info, char **strsnums, size_t nstr)
+static int	parseargs(struct s_op_info *info, char **strsnums, size_t nstr)
 {
 	const int	num_total = word_count_from_strsnums(strsnums, nstr);
 
@@ -52,7 +52,7 @@ int	parseargs(struct s_op_info *info, char **strsnums, size_t nstr)
 	return (0);
 }
 
-int	sort_optimized(struct s_op_info *info)
+static int	sort_optimized(struct s_op_info *info)
 {
 	if (info->a.size == 3)
 		return (sort_dumb_three(info));

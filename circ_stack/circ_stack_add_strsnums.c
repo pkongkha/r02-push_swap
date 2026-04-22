@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:08:18 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/04/21 17:34:47 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/22 17:00:50 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ int	circ_stack_add_strsnums(t_circ_stack *cs, char **strsnums, size_t nstr)
 	while (nstr)
 	{
 		n = circ_stack_add_strnums(cs, *strsnums++);
-		if (n < 0)
-			return (n);
+		if (n <= 0)
+			return (-EINVAL);
 		num_count += n;
 		--nstr;
 	}
